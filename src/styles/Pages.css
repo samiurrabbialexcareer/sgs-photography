@@ -1,0 +1,48 @@
+/* Global Page Styles */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    color: var(--color-text-secondary);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.sub-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.sub-cat {
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-bg-secondary);
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: transform 0.3s ease;
+}
+
+.sub-cat:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+}
+
+.sub-cat h3 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}

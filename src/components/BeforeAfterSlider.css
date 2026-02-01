@@ -1,0 +1,99 @@
+.before-after-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    overflow: hidden;
+    user-select: none;
+    background-color: #000;
+}
+
+.image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 900px;
+    /* Match container max-width or set fixed aspect ratio handling */
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Ensure 'after' image stays anchored left even when wrapper width shrinks */
+.image-wrapper.after img {
+    /* This is key: The image inside must remain full width so it doesn't squash, just clips */
+    width: 900px;
+}
+
+/* Use JS to set width of .after wrapper, or clip-path */
+/* Here we used width on wrapper. But img inside needs to be fixed width to crop. 
+   Better approach: Wrapper is 100%, Image is 100%. 
+   Clip-path approach is easier for responsiveness.
+   Let's check code in jsx. Used width on wrapper. */
+
+.slider-range {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 10;
+    cursor: ew-resize;
+    margin: 0;
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #fff;
+    z-index: 5;
+    pointer-events: none;
+    /* Let clicks pass to input */
+    transform: translateX(-50%);
+}
+
+.handle-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #000;
+    font-weight: bold;
+}
+
+.label {
+    position: absolute;
+    top: 20px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.before .label {
+    right: 20px;
+}
+
+.after .label {
+    left: 20px;
+}
